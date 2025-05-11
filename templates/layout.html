@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      {% block title %} Tourist Recommendation System {% endblock %}
+    </title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+      }
+      nav {
+        background-color: #343a40;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-brand {
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+      .nav-links a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: #17a2b8;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      }
+    {% block stylesheets %}{% endblock %}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-brand" href="/">Tourist Recommender</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/form">Find Destinations</a>
+      </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+  </body>
+</html>

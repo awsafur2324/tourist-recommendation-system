@@ -1,0 +1,109 @@
+{% extends 'layout.html' %} {% block title %}Tourist Recommender{% endblock %}
+{% block stylesheets %}
+  .main_container {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+  }
+  select,
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  button:hover {
+    background: #218838;
+  }
+
+{% endblock %} {% block content %}
+<div class="main_container">
+  <form action="{{ url_for('recommend') }}" method="POST">
+  <h2>Get Recommendations</h2>
+
+  <label
+    >Category:
+    <select name="category" required>
+      <option value="">Select</option>
+      <option>island</option>
+      <option>cultural</option>
+      <option>religious</option>
+      <option>forest</option>
+      <option>historical</option>
+      <option>sea</option>
+      <option>natural</option>
+      <option>national</option>
+      <option>hill</option>
+      <option>park</option>
+      <option>resort</option>
+    </select>
+  </label>
+
+  <label
+    >Budget Level:
+    <select name="budget_level" required>
+      <option value="">Select</option>
+      <option>high</option>
+      <option>medium</option>
+      <option>low</option>
+    </select>
+  </label>
+
+  <label
+    >Season:
+    <select name="season" required>
+      <option value="">Select</option>
+      <option>winter</option>
+      <option>summer</option>
+      <option>monsoon</option>
+    </select>
+  </label>
+
+  <label
+    >Trip Type:
+    <select name="trip_type" required>
+      <option value="">Select</option>
+      <option>family</option>
+      <option>solo</option>
+      <option>friends</option>
+    </select>
+  </label>
+
+  <label
+    >Duration (days):
+    <input type="number" name="duration_days" required min="1" />
+  </label>
+
+  <button type="submit">Recommend</button>
+</form>
+</div>
+{% endblock %}

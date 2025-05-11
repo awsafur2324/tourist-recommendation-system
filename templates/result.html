@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Recommendations</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #eef2f5;
+        padding: 30px;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+      .card {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 15px auto;
+        max-width: 600px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .place-name {
+        font-weight: bold;
+        color: #4caf50;
+        font-size: 18px;
+      }
+      .description {
+        margin-top: 5px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Recommended Places</h2>
+    {% for rec in recommendations %}
+    <div class="card">
+      <div class="place-name">{{ rec.place_name }}</div>
+      <div class="description">{{ rec.description }}</div>
+    </div>
+    {% endfor %}
+    <div
+      style="
+        text-align: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <button
+        style="
+          margin-top: 20px;
+          padding: 10px;
+          background-color: #4caf50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+        "
+        onclick="window.history.back()"
+      >
+        Go Back
+      </button>
+    </div>
+    <p style="margin-top: 20px; text-align: center; color: #555">
+      Note: These are just some of the recommended places. There are many more
+      to explore.
+    </p>
+  </body>
+</html>
