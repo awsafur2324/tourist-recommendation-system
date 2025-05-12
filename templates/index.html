@@ -1,22 +1,78 @@
-{% extends 'layout.html' %} {% block title %} Home {% endblock %} 
+{% extends 'layout.html' %}
+{% block title %} Home {% endblock %}
+
 {% block content %}
-<div
-  style="
-    background-image: url('https://wallpapercave.com/wp/aZlqiAT.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+<!-- Swiper with fixed text -->
+<div class="swiper-container" style="width: 100vw; height: calc(100vh - 60px); position: relative; overflow: hidden;">
+  
+  <!-- Fixed Text Overlay -->
+  <div style="
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     text-align: center;
-    width: 100vw;
-    height: calc(100vh - 60px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    z-index: 10;
     color: white;
     text-shadow: 1px 1px 5px black;
-  "
->
-  <h1>Welcome to our Tourist Recommendation System</h1>
+    font-size: 28px;
+    font-weight: bold;
+  ">
+    <h1>Welcome to our Tourist Recommendation System</h1>
+  </div>
+
+  <!-- Slides -->
+  <div class="swiper-wrapper" style="height: 100%;">
+    <!-- Slide 1 -->
+    <div class="swiper-slide" style="
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+    "></div>
+
+    <!-- Slide 2 -->
+    <div class="swiper-slide" style="
+      background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+    "></div>
+
+    <!-- Slide 3 -->
+    <div class="swiper-slide" style="
+      background-image: url('https://cdn.pixabay.com/photo/2015/05/11/06/41/beach-762021_1280.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+    "></div>
+    <!-- Slide 4 -->
+    <div class="swiper-slide" style="
+      background-image: url('https://cdn.pixabay.com/photo/2020/05/26/13/09/churfirsten-5222986_1280.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+    "></div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="swiper-pagination" style="position: absolute; bottom: 20px; z-index: 5;"></div>
 </div>
+
+<!-- Swiper Init Script -->
+<script>
+  const swiper = new Swiper(".swiper-container", {
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: false,
+      dynamicBullets: true,
+    },
+  });
+</script>
 {% endblock %}
