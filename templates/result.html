@@ -33,26 +33,33 @@
     </style>
   </head>
   <body>
-    <h2>Recommended Places</h2>
-    {% for rec in recommendations %}
+    <h2>Recommended "{{ selected_category }}" Places</h2>
+
+    {% if strict_recommendations %} {% for rec in strict_recommendations %}
     <div class="card">
       <div class="place-name">{{ rec.place_name }}</div>
       <div class="description">{{ rec.description }}</div>
     </div>
-    {% endfor %}
-    <div
-      style="
-        text-align: center;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      "
-    >
+    {% endfor %} {% else %}
+    <p style="text-align: center; color: #f44336">
+      No exact matches found for your selected category.
+    </p>
+    {% endif %} {% if additional_suggestions %}
+    <h2 style="margin-top: 40px; color: #555; text-align: center">
+      You can also visit:
+    </h2>
+    {% for rec in additional_suggestions %}
+    <div class="card">
+      <div class="place-name">{{ rec.place_name }}</div>
+      <div class="description">{{ rec.description }}</div>
+    </div>
+    {% endfor %} {% endif %}
+
+    <div style="text-align: center; margin-top: 30px">
       <button
+        onclick="window.history.back()"
         style="
-          margin-top: 20px;
-          padding: 10px;
+          padding: 10px 20px;
           background-color: #4caf50;
           color: white;
           border: none;
@@ -60,11 +67,11 @@
           font-size: 16px;
           cursor: pointer;
         "
-        onclick="window.history.back()"
       >
         Go Back
       </button>
     </div>
+
     <p style="margin-top: 20px; text-align: center; color: #555">
       Note: These are just some of the recommended places. There are many more
       to explore.
